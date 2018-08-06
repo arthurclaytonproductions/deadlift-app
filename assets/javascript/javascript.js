@@ -56,6 +56,7 @@ $(document).bind('keypress', function(e) {
 
 //squat and deadlift training percentages
 $('#addmaxes').on('click',function(){
+    $('#program').empty();
     dlMax = $('#dlcurrentmax-input').val().trim();
     ftsqMax = $('#ftsqcurrentmax-input').val().trim();
     per = 95;
@@ -66,7 +67,8 @@ $('#addmaxes').on('click',function(){
     var newDiv = $('<div>');
     newDiv.addClass('workingmaxes');
     newDiv.html('<h3>Deadlift Training Max(95% of max): ' + roundedNumberDl + ' <br/>Front Squat Training Max(95% of max): ' + roundedNumberSq) ;
-    $('#program').append(newDiv);      
+    $('#program').append(newDiv); 
+        
 });   
 
 //week 1
@@ -92,6 +94,7 @@ $('#addmaxes').on('click',function(){
     newDivTwo.html('Deadlift (75%): 3x5 at ' + rnWeekDl + '<br/>Deficit Deadlift (60%): 8x3(90sec rest between sets) at ' + rnDefWeek + '<br/>Front Squat (60%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Lat pulldowns:  3x12');
     $('#program').append(newDivOne);
     $('#program').append(newDivTwo);
+   
 
 }); 
 
@@ -118,6 +121,7 @@ $('#addmaxes').on('click',function(){
     newDivTwo.html('Deadlift (80%): 3x5 at ' + rnWeekDl + '<br/>Deficit Deadlift (65%): 8x3(90sec rest between sets) at ' + rnDefWeek + '<br/>Front Squat (65%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Lat pulldowns:  3x12');
     $('#program').append(newDivOne);
     $('#program').append(newDivTwo);
+    ; 
     
 }); 
 
@@ -144,6 +148,7 @@ $('#addmaxes').on('click',function(){
     newDivTwo.html('Deadlift (85%): 3x5 at ' + rnWeekDl + '<br/>Deficit Deadlift (70%): 8x3(90sec rest between sets) at ' + rnDefWeek + '<br/>Front Squat (70%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Lat pulldowns:  3x12');
     $('#program').append(newDivOne);
     $('#program').append(newDivTwo);
+     
     
 }); 
 
@@ -171,6 +176,7 @@ $('#addmaxes').on('click',function(){
     $('#program').append(newDivOne);
     $('#program').append(newDivTwo);
     
+    
 }); 
 
 //week 5
@@ -196,6 +202,7 @@ $('#addmaxes').on('click',function(){
     newDivTwo.html('Deadlift (80%): 3x5 at ' + rnWeekDl + '<br/>Deficit Deadlift (65%): 3x5 at ' + rnDefWeek + '<br/>Front Squat (65%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Lat pulldowns:  3x12');
     $('#program').append(newDivOne);
     $('#program').append(newDivTwo);
+     
     
 }); 
           
@@ -251,6 +258,7 @@ $('#addmaxes').on('click',function(){
     $('#program').append(newDivOne);
     $('#program').append(newDivTwo);
     
+    
 }); 
 
 //week 8
@@ -277,6 +285,7 @@ $('#addmaxes').on('click',function(){
     newDivTwo.html('Deadlift (95%): 1x2 at ' + rnWeekDl + '<br/>Block Pulls (100%): 3x3 at ' + rnDefWeek + '<br/>Front Squat (85%): 3x5 at ' + rnWeekSq + '<br/>Bent over rows: 3x8' + '<br/>Pull ups or chin ups: 25 total');
     $('#program').append(newDivOne);
     $('#program').append(newDivTwo);
+   
     
 }); 
 
@@ -301,6 +310,7 @@ $('#addmaxes').on('click',function(){
     newDivTwo.html('Deadlift (100%): 1x2 at ' + rnWeekDl + '<br/>Front Squat (90%): 3x3 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Pull ups or chin ups: 25 total');
     $('#program').append(newDivOne);
     $('#program').append(newDivTwo);
+     
     
 }); 
 
@@ -326,6 +336,7 @@ $('#addmaxes').on('click',function(){
     $('#program').append(newDivOne);
     $('#program').append(newDivTwo);
     
+    
 }); 
 
 //week 11
@@ -345,8 +356,8 @@ $('#addmaxes').on('click',function(){
     $('#program').append(newDivOne);
     $('#program').append(newDivTwo);
     
+    
 }); 
-
 
 
 

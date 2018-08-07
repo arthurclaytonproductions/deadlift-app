@@ -66,7 +66,15 @@ $('#addmaxes').on('click',function(){
     var roundedNumberSq = Math.floor(frsqTrainingMax);
     var newDiv = $('<div>');
     newDiv.addClass('workingmaxes');
-    newDiv.html('<h3>Deadlift Training Max(95% of max): ' + roundedNumberDl + ' <br/>Front Squat Training Max(95% of max): ' + roundedNumberSq) ;
+    newDiv.html('<h2>10 Week Training Routine ' + '<br/><h3>Deadlift Training Max(95% of max): ' + roundedNumberDl + ' <br/>Front Squat Training Max(95% of max): ' + roundedNumberSq) ;
+    $('#program').css({'color': 'rgb(255, 255, 255)',
+        'padding': '2rem 1rem' ,
+        'margin-bottom': '2rem',
+        'border-radius': '0.3rem',
+        'background': '#000064', 
+        'background': '-webkit-linear-gradient(to right, #1BADD8, #00003E)', 
+        'background': 'linear-gradient(to right, #1BADD8, #00003E)'});
+    
     $('#program').append(newDiv); 
         
 });   
@@ -92,6 +100,7 @@ $('#addmaxes').on('click',function(){
     newDivTwo.addClass('trainingProgram');
     newDivOne.html('<h3>Week 1');
     newDivTwo.html('Deadlift (75%): 3x5 at ' + rnWeekDl + '<br/>Deficit Deadlift (60%): 8x3(90sec rest between sets) at ' + rnDefWeek + '<br/>Front Squat (60%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Lat pulldowns:  3x12');
+    
     $('#program').append(newDivOne);
     $('#program').append(newDivTwo);
    

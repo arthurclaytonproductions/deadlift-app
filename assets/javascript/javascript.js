@@ -25,6 +25,68 @@ var per = 0;
 var per2 = 0;
 var per3 = 0;
 
+var weeks = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8', 'Week 9', 'Week 10', 'Week 11'];
+ 
+  
+const PERCENT_FOR_MAX = 95;
+var percentagesPerWeek = [
+  {
+    deadlift: 75,
+    deficitDead: 60,
+    frontSquat: 60,
+  },
+  {
+    deadlift: 80,
+    deficitDead: 65,
+    frontSquat: 65,
+  },
+  {
+    deadlift: 85,
+    deficitDead: 70,
+    frontSquat: 70,
+  },
+  {
+    deadlift: 90,
+    deficitDead: 75,
+    frontSquat: 75,
+  },
+  {
+    deadlift: 80,
+    deficitDead: 65,
+    frontSquat: 65,
+  },
+  {
+    deadlift: 85,
+    blockPulls: 90,
+    frontSquat:80,
+  },
+  {
+    deadlift: 90,
+    blockPulls: 95,
+    frontSquat:80,
+  },
+  {
+    deadlift: 95,
+    blockPulls: 100,
+    frontSquat:85,
+  },
+  {
+    deadlift: 100,
+    frontSquat:90,
+  },
+  {
+    deadlift: 60,
+    frontSquat: 95,
+  },
+  {
+    deadlift: 105,
+
+  },
+ 
+];
+
+
+
 //functions
 //only allow numbers in the input form
 $("#deadliftsquat-form").keydown(function (e) {
@@ -53,7 +115,6 @@ $(document).bind('keypress', function(e) {
 });
 
 
-
 //squat and deadlift training percentages
 $('#addmaxes').on('click',function(){
     $('#program').empty();
@@ -76,299 +137,39 @@ $('#addmaxes').on('click',function(){
         'background': 'linear-gradient(to right, #1BADD8, #00003E)'});
     
     $('#program').append(newDiv); 
+
+
+
         
 });   
-
-//week 1
 $('#addmaxes').on('click',function(){
+  for(var i = 0, j = 0, k = 0; i < percentagesPerWeek.length && j < weeks.length; i++, j++){
     dlMax = $('#dlcurrentmax-input').val().trim();
     ftsqMax = $('#ftsqcurrentmax-input').val().trim();
-    per = 95;
-    dlTrainingMax = (dlMax * per) / 100;
-    frsqTrainingMax = (ftsqMax * per) / 100;
-    per= 75;
-    var weekDl = (dlTrainingMax * per) / 100;
+    dlTrainingMax = (dlMax * PERCENT_FOR_MAX) / 100;
+    frsqTrainingMax = (ftsqMax * PERCENT_FOR_MAX) / 100;
+    var deadliftPercent = percentagesPerWeek[i].deadlift;
+    var weekDl = (dlTrainingMax * deadliftPercent) / 100;
     var rnWeekDl = Math.floor(weekDl);
-    per2= 60;
-    var weekDef = (dlTrainingMax * per2) / 100;
+    var defictDeadPercent = percentagesPerWeek[i].deficitDead;
+    var weekDef = (dlTrainingMax * defictDeadPercent) / 100;
     var rnDefWeek = Math.floor(weekDef);
-    var weekSq = (frsqTrainingMax * per2) / 100;
+    var blockPullPercent = percentagesPerWeek[i].blockPulls;
+    var weekBlockPulls = (dlTrainingMax * blockPullPercent) / 100;
+    var rnBlockPullsWeek = Math.floor(weekBlockPulls);
+    var frontSquatPercent = percentagesPerWeek[i].frontSquat;
+    var weekSq = (frsqTrainingMax * frontSquatPercent) / 100;
     var rnWeekSq = Math.floor(weekSq);
     var newDivOne = $('<div>');
     var newDivTwo = $('<div>');
     newDivOne.addClass('trainingProgram');
     newDivTwo.addClass('trainingProgram');
-    newDivOne.html('<h3>Week 1');
-    newDivTwo.html('Deadlift (75%): 3x5 at ' + rnWeekDl + '<br/>Deficit Deadlift (60%): 8x3(90sec rest between sets) at ' + rnDefWeek + '<br/>Front Squat (60%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Lat pulldowns:  3x12');
-    
+    newDivOne.html('<h3>' + weeks[j]);
     $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
-   
-
-}); 
-
-//week 2
-$('#addmaxes').on('click',function(){
-    dlMax = $('#dlcurrentmax-input').val().trim();
-    ftsqMax = $('#ftsqcurrentmax-input').val().trim();
-    per = 95;
-    dlTrainingMax = (dlMax * per) / 100;
-    frsqTrainingMax = (ftsqMax * per) / 100;
-    per= 80;
-    var weekDl = (dlTrainingMax * per) / 100;
-    var rnWeekDl = Math.floor(weekDl);
-    per2= 65;
-    var weekDef = (dlTrainingMax * per2) / 100;
-    var rnDefWeek = Math.floor(weekDef);
-    var weekSq = (frsqTrainingMax * per2) / 100;
-    var rnWeekSq = Math.floor(weekSq);
-    var newDivOne = $('<div>');
-    var newDivTwo = $('<div>');
-    newDivOne.addClass('trainingProgram');
-    newDivTwo.addClass('trainingProgram');
-    newDivOne.html('<h3>Week 2');
-    newDivTwo.html('Deadlift (80%): 3x5 at ' + rnWeekDl + '<br/>Deficit Deadlift (65%): 8x3(90sec rest between sets) at ' + rnDefWeek + '<br/>Front Squat (65%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Lat pulldowns:  3x12');
-    $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
-    ; 
     
-}); 
-
-//week 3
-$('#addmaxes').on('click',function(){
-    dlMax = $('#dlcurrentmax-input').val().trim();
-    ftsqMax = $('#ftsqcurrentmax-input').val().trim();
-    per = 95;
-    dlTrainingMax = (dlMax * per) / 100;
-    frsqTrainingMax = (ftsqMax * per) / 100;
-    per= 85;
-    var weekDl = (dlTrainingMax * per) / 100;
-    var rnWeekDl = Math.floor(weekDl);
-    per2= 70;
-    var weekDef = (dlTrainingMax * per2) / 100;
-    var rnDefWeek = Math.floor(weekDef);
-    var weekSq = (frsqTrainingMax * per2) / 100;
-    var rnWeekSq = Math.floor(weekSq);
-    var newDivOne = $('<div>');
-    var newDivTwo = $('<div>');
-    newDivOne.addClass('trainingProgram');
-    newDivTwo.addClass('trainingProgram');
-    newDivOne.html('<h3>Week 3');
-    newDivTwo.html('Deadlift (85%): 3x5 at ' + rnWeekDl + '<br/>Deficit Deadlift (70%): 8x3(90sec rest between sets) at ' + rnDefWeek + '<br/>Front Squat (70%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Lat pulldowns:  3x12');
-    $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
-     
-    
-}); 
-
-//week 4
-$('#addmaxes').on('click',function(){
-    dlMax = $('#dlcurrentmax-input').val().trim();
-    ftsqMax = $('#ftsqcurrentmax-input').val().trim();
-    per = 95;
-    dlTrainingMax = (dlMax * per) / 100;
-    frsqTrainingMax = (ftsqMax * per) / 100;
-    per= 90;
-    var weekDl = (dlTrainingMax * per) / 100;
-    var rnWeekDl = Math.floor(weekDl);
-    per2= 75;
-    var weekDef = (dlTrainingMax * per2) / 100;
-    var rnDefWeek = Math.floor(weekDef);
-    var weekSq = (frsqTrainingMax * per2) / 100;
-    var rnWeekSq = Math.floor(weekSq);
-    var newDivOne = $('<div>');
-    var newDivTwo = $('<div>');
-    newDivOne.addClass('trainingProgram');
-    newDivTwo.addClass('trainingProgram');
-    newDivOne.html('<h3>Week 4');
-    newDivTwo.html('Deadlift (90%): 3x3 at ' + rnWeekDl + '<br/>Deficit Deadlift (75%): 4x5 at ' + rnDefWeek + '<br/>Front Squat (75%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Lat pulldowns:  3x12');
-    $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
-    
-    
-}); 
-
-//week 5
-$('#addmaxes').on('click',function(){
-    dlMax = $('#dlcurrentmax-input').val().trim();
-    ftsqMax = $('#ftsqcurrentmax-input').val().trim();
-    per = 95;
-    dlTrainingMax = (dlMax * per) / 100;
-    frsqTrainingMax = (ftsqMax * per) / 100;
-    per= 80;
-    var weekDl = (dlTrainingMax * per) / 100;
-    var rnWeekDl = Math.floor(weekDl);
-    per2= 65;
-    var weekDef = (dlTrainingMax * per2) / 100;
-    var rnDefWeek = Math.floor(weekDef);
-    var weekSq = (frsqTrainingMax * per2) / 100;
-    var rnWeekSq = Math.floor(weekSq);
-    var newDivOne = $('<div>');
-    var newDivTwo = $('<div>');
-    newDivOne.addClass('trainingProgram');
-    newDivTwo.addClass('trainingProgram');
-    newDivOne.html('<h3>Week 5');
-    newDivTwo.html('Deadlift (80%): 3x5 at ' + rnWeekDl + '<br/>Deficit Deadlift (65%): 3x5 at ' + rnDefWeek + '<br/>Front Squat (65%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Lat pulldowns:  3x12');
-    $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
-     
-    
-}); 
-          
-//week 6
-$('#addmaxes').on('click',function(){
-    dlMax = $('#dlcurrentmax-input').val().trim();
-    ftsqMax = $('#ftsqcurrentmax-input').val().trim();
-    per = 95;
-    dlTrainingMax = (dlMax * per) / 100;
-    frsqTrainingMax = (ftsqMax * per) / 100;
-    per= 85;
-    var weekDl = (dlTrainingMax * per) / 100;
-    var rnWeekDl = Math.floor(weekDl);
-    per2= 90;
-    var weekDef = (dlTrainingMax * per2) / 100;
-    var rnDefWeek = Math.floor(weekDef);
-    per3= 80;
-    var weekSq = (frsqTrainingMax * per3) / 100;
-    var rnWeekSq = Math.floor(weekSq);
-    var newDivOne = $('<div>');
-    var newDivTwo = $('<div>');
-    newDivOne.addClass('trainingProgram');
-    newDivTwo.addClass('trainingProgram');
-    newDivOne.html('<h3>Week 6');
-    newDivTwo.html('Deadlift (85%): 3x5 at ' + rnWeekDl + '<br/>Block Pulls (90%): 3x3 at ' + rnDefWeek + '<br/>Front Squat (70%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Pull ups or chin ups: 25 total');
-    $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
-    
-}); 
-
-//week 7
-$('#addmaxes').on('click',function(){
-    dlMax = $('#dlcurrentmax-input').val().trim();
-    ftsqMax = $('#ftsqcurrentmax-input').val().trim();
-    per = 95;
-    dlTrainingMax = (dlMax * per) / 100;
-    frsqTrainingMax = (ftsqMax * per) / 100;
-    per= 90;
-    var weekDl = (dlTrainingMax * per) / 100;
-    var rnWeekDl = Math.floor(weekDl);
-    per2= 95;
-    var weekDef = (dlTrainingMax * per2) / 100;
-    var rnDefWeek = Math.floor(weekDef);
-    per3= 80;
-    var weekSq = (frsqTrainingMax * per3) / 100;
-    var rnWeekSq = Math.floor(weekSq);
-    var newDivOne = $('<div>');
-    var newDivTwo = $('<div>');
-    newDivOne.addClass('trainingProgram');
-    newDivTwo.addClass('trainingProgram');
-    newDivOne.html('<h3>Week 7');
-    newDivTwo.html('Deadlift (90%): 2x2 at ' + rnWeekDl + '<br/>Block Pulls (95%): 3x3 at ' + rnDefWeek + '<br/>Front Squat (80%): 3x8 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Pull ups or chin ups: 25 total');
-    $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
-    
-    
-}); 
-
-//week 8
-$('#addmaxes').on('click',function(){
-    dlMax = $('#dlcurrentmax-input').val().trim();
-    ftsqMax = $('#ftsqcurrentmax-input').val().trim();
-    per = 95;
-    dlTrainingMax = (dlMax * per) / 100;
-    frsqTrainingMax = (ftsqMax * per) / 100;
-    per= 95;
-    var weekDl = (dlTrainingMax * per) / 100;
-    var rnWeekDl = Math.floor(weekDl);
-    per2= 100;
-    var weekDef = (dlTrainingMax * per2) / 100;
-    var rnDefWeek = Math.floor(weekDef);
-    per3= 85;
-    var weekSq = (frsqTrainingMax * per3) / 100;
-    var rnWeekSq = Math.floor(weekSq);
-    var newDivOne = $('<div>');
-    var newDivTwo = $('<div>');
-    newDivOne.addClass('trainingProgram');
-    newDivTwo.addClass('trainingProgram');
-    newDivOne.html('<h3>Week 8');
-    newDivTwo.html('Deadlift (95%): 1x2 at ' + rnWeekDl + '<br/>Block Pulls (100%): 3x3 at ' + rnDefWeek + '<br/>Front Squat (85%): 3x5 at ' + rnWeekSq + '<br/>Bent over rows: 3x8' + '<br/>Pull ups or chin ups: 25 total');
-    $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
-   
-    
-}); 
-
-//week 9
-$('#addmaxes').on('click',function(){
-    dlMax = $('#dlcurrentmax-input').val().trim();
-    ftsqMax = $('#ftsqcurrentmax-input').val().trim();
-    per = 95;
-    dlTrainingMax = (dlMax * per) / 100;
-    frsqTrainingMax = (ftsqMax * per) / 100;
-    per= 100;
-    var weekDl = (dlTrainingMax * per) / 100;
-    var rnWeekDl = Math.floor(weekDl);
-    per3= 90;
-    var weekSq = (frsqTrainingMax * per3) / 100;
-    var rnWeekSq = Math.floor(weekSq);
-    var newDivOne = $('<div>');
-    var newDivTwo = $('<div>');
-    newDivOne.addClass('trainingProgram');
-    newDivTwo.addClass('trainingProgram');
-    newDivOne.html('<h3>Week 9');
-    newDivTwo.html('Deadlift (100%): 1x2 at ' + rnWeekDl + '<br/>Front Squat (90%): 3x3 at ' + rnWeekSq + '<br/>Stiff-leg deadlift: 3x8 ' + '<br/>Bent over rows: 3x8' + '<br/>Pull ups or chin ups: 25 total');
-    $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
-     
-    
-}); 
-
-//week 10
-$('#addmaxes').on('click',function(){
-    dlMax = $('#dlcurrentmax-input').val().trim();
-    ftsqMax = $('#ftsqcurrentmax-input').val().trim();
-    per = 95;
-    dlTrainingMax = (dlMax * per) / 100;
-    frsqTrainingMax = (ftsqMax * per) / 100;
-    per= 60;
-    var weekDl = (dlTrainingMax * per) / 100;
-    var rnWeekDl = Math.floor(weekDl);
-    per3= 95;
-    var weekSq = (frsqTrainingMax * per3) / 100;
-    var rnWeekSq = Math.floor(weekSq);
-    var newDivOne = $('<div>');
-    var newDivTwo = $('<div>');
-    newDivOne.addClass('trainingProgram');
-    newDivTwo.addClass('trainingProgram');
-    newDivOne.html('<h3>Week 10');
-    newDivTwo.html('Deadlift (60%): 3x3 at ' + rnWeekDl + '<br/>Front Squat (95%): 3x3 at ' + rnWeekSq + '<br/>Bent over rows: 3x8' + '<br/>Pull ups or chin ups: 25 total');
-    $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
-    
-    
-}); 
-
-//week 11
-$('#addmaxes').on('click',function(){
-    dlMax = $('#dlcurrentmax-input').val().trim();
-    ftsqMax = $('#ftsqcurrentmax-input').val().trim();
-    per = 103;
-    dlTrainingMax = (dlMax * per) / 100;
-    var weekDl = (dlTrainingMax * per) / 100;
-    var rnWeekDl = Math.floor(weekDl);
-    var newDivOne = $('<div>');
-    var newDivTwo = $('<div>');
-    newDivOne.addClass('trainingProgram');
-    newDivTwo.addClass('trainingProgram');
-    newDivOne.html('<h3>Week 11');
-    newDivTwo.html('Deadlift (103%):Your new max at ' + rnWeekDl);
-    $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
-    
-    
-}); 
-
-
+  }
+  
+});
 
 
 

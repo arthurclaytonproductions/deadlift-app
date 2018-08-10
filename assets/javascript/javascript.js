@@ -11,7 +11,7 @@ var config = {
   };
   firebase.initializeApp(config);
   //Reference database
-  database = firebase.database();
+ var database = firebase.database().ref('messages');
 
 //global variables
 
@@ -190,9 +190,14 @@ $('#addmaxes').on('click',function(){
 
 
 
-
-
-
-
-});
+//Contact form to firebase
+$("#contact-form").submit(function(config) { $(this), console.log("Submit to Firebase");
+var c = $("#form_name").val().trim(),
+    d = $("#form_lastname").val().trim(),
+    e = $("#form_email").val().trim(),
+    f = $("#form_message").val().trim(),
+    g = { firstname: c, lastname: d, email: e, message: f};
+return database.push(g)
+});  
+  });
 

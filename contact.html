@@ -14,6 +14,7 @@
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/nemoy" type="text/css"/>
 <!--Bootstrap-->
 <!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -46,29 +47,60 @@
       </nav>
 </header>
 <div class="container">
-    <div class="jumbotron">
-     <h1 class="display-4">Increase Your Deadlift!</h1>
-     <hr class="my-4">
-     <p>Increase your deadlift by 20-50 pounds in 10 weeks!</p>
-    </div>
-</div>
-<div class="container">
-<form id="deadliftsquat-form">
-  <label for="deadlift-input">Deadlift Max</label>
-  <input type="text" id="dlcurrentmax-input">
-  <label for="frontsquat-input">Front Squat Max</label>
-  <input type="text" id="ftsqcurrentmax-input">
-  <button id="addmaxes" type="button">Submit</button>
-</form>
-</div>
-<br>
-<div class="container" id='workoutProgram'>
-    <div class="card-body">
-        <div id= "program">
+<form id="contact-form" method="post" action="contact.html" role="form">
+
+    <div class="messages"></div>
+
+    <div class="controls">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_name">Firstname *</label>
+                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_lastname">Lastname *</label>
+                    <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_email">Email *</label>
+                    <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_message">Message *</label>
+                    <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input id="addmaxes" type="submit" value="Submit">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            </div>
         </div>
     </div>
-</div>
 
+</form>
+</div>
 
 
 

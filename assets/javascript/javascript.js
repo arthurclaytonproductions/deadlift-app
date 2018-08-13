@@ -74,7 +74,7 @@ var percentagesPerWeek = [
     deficitDead: 75,
     deficitDeadReps: [' - 5x3'],
     frontSquat: 75,
-    frontSquatReps: [' - 3x10'],
+    frontSquatReps: [' - 3x8'],
     auxillary: [
       'Stiff Leg Deadlift - 3x8',
       'Bent Over Row - 3x8',
@@ -82,54 +82,96 @@ var percentagesPerWeek = [
     ]
   },
   {
-    deadlift: 80,
+    deadlift: 75,
+    deadliftReps: [' - 3x3'],
     deficitDead: 65,
+    deficitDeadReps: [' - 4x3'],
     frontSquat: 65,
+    frontSquatReps: [' - 3x5'],
     auxillary: [
+      'Stiff Leg Deadlift - 2x8',
+      'Bent Over Row - 2x8',
+      'Lat Pulldown - 3x8',
+      '(Deload Week)'
+    ]
+  },
+  {
+    deadlift: 85,
+    deadliftReps: [' - 3x3'],
+    blockPulls: 90,
+    blockPullsReps: [' - 4x3'],
+    frontSquat: 80,
+    frontSquatReps: [' - 3x5'],
+    auxillary: [
+      'Stiff Leg Deadlift - 2x8',
+      'Bent Over Row - 2x8',
+      'Lat Pulldown - 3x12',
       
     ]
   },
   {
     deadlift: 85,
-    blockPulls: 90,
-    frontSquat:80,
+    deadliftReps: [' - 3x3'],
+    blockPulls: 95,
+    blockPullsReps: [' - 4x3'],
+    frontSquat: 85,
+    frontSquatReps: [' - 3x5'],
     auxillary: [
+      'Stiff Leg Deadlift - 2x8',
+      'Bent Over Row - 2x8',
+      'Lat Pulldown - 3x12',
       
     ]
   },
   {
     deadlift: 90,
-    blockPulls: 95,
-    frontSquat:80,
+    deadliftReps: [' - 2x2'],
+    blockPulls: 100,
+    blockPullsReps: [' - 3x3'],
+    frontSquat: 90,
+    frontSquatReps: [' - 3x3'],
     auxillary: [
+      'Stiff Leg Deadlift - 2x8',
+      'Bent Over Row - 2x8',
+      'Lat Pulldown - 3x12',
       
     ]
   },
   {
     deadlift: 95,
-    blockPulls: 100,
-    frontSquat:85,
+    deadliftReps: [' - 2x2'],
+    blockPulls: 105,
+    blockPullsReps: [' - 3x3'],
+    frontSquat: 95,
+    frontSquatReps: [' - 3x2'],
     auxillary: [
-      
-    ]
-  },
-  {
-    deadlift: 100,
-    frontSquat:90,
-    auxillary: [
+      'Stiff Leg Deadlift - 2x8',
+      'Bent Over Row - 2x8',
+      'Lat Pulldown - 3x12',
       
     ]
   },
   {
     deadlift: 60,
-    frontSquat: 95,
+    deadliftReps: [' - 3x3'],
+    frontSquat: 60,
+    frontSquatReps: [' - 3x5'],
     auxillary: [
+      'Stiff Leg Deadlift - 2x8',
+      'Bent Over Row - 2x8',
+      'Lat Pulldown - 3x8',
+      'Deload Week/Resting for new max attempt'
       
     ]
   },
   {
     deadlift: 110,
-    
+    deadliftReps: [' - 1x1'],
+    auxillary: [
+      'New Max attempt!! You got this!!',
+     
+      
+    ]
   },
  
 ];
@@ -202,6 +244,7 @@ function createWorkout() {
     var blockPullPercent = percentagesPerWeek[i].blockPulls;
     var weekBlockPulls = (dlTrainingMax * blockPullPercent) / 100;
     var rnBlockPullsWeek = Math.floor(weekBlockPulls);
+    var bpRep = percentagesPerWeek[i].blockPullsReps;
     var frontSquatPercent = percentagesPerWeek[i].frontSquat;
     var weekSq = (frsqTrainingMax * frontSquatPercent) / 100;
     var rnWeekSq = Math.floor(weekSq);
@@ -220,15 +263,42 @@ function createWorkout() {
     
     newDivOne.addClass('trainingProgram');
     newDivTwo.addClass('trainingProgram');
+    if(j < 5){
     newDivOne.html('<h3>Week ' + (j + 1));
-    $('#program').append(newDivOne);
-    $('#program').append(newDivTwo);
     newDivTwo.html(
       'Deadlift('+deadliftPercent+'%): at ' + rnWeekDl +   dlReps +
       '<br/>Deficit Deadlift('+defictDeadPercent+'%): at ' + rnDefWeek + dlDefReps +
       '<br/>Front Squat('+frontSquatPercent+'%): at ' + rnWeekSq + fnsqReps +
       auxData
     );
+  }
+  else if(j < 9){
+    newDivOne.html('<h3>Week ' + (j + 1));
+    newDivTwo.html(
+      'Deadlift('+deadliftPercent+'%): at ' + rnWeekDl +   dlReps +
+      '<br/>Block Pull('+blockPullPercent+'%): at ' + rnBlockPullsWeek + bpRep +
+      '<br/>Front Squat('+frontSquatPercent+'%): at ' + rnWeekSq + fnsqReps +
+      auxData
+    );
+  }
+  else if(j < 10){
+    newDivOne.html('<h3>Week ' + (j + 1));
+    newDivTwo.html(
+      'Deadlift('+deadliftPercent+'%): at ' + rnWeekDl +   dlReps +
+      '<br/>Front Squat('+frontSquatPercent+'%): at ' + rnWeekSq + fnsqReps +
+      auxData
+    );
+  
+  }
+  else{
+    newDivOne.html('<h3>Week ' + (j + 1));
+    newDivTwo.html(
+      'Deadlift('+deadliftPercent+'%): at ' + rnWeekDl +   dlReps +
+      auxData
+    );
+  };
+    $('#program').append(newDivOne);
+    $('#program').append(newDivTwo);
   }
 }
 // starts functions calls them

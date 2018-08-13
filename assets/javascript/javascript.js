@@ -263,8 +263,9 @@ function createWorkout() {
     
     newDivOne.addClass('trainingProgram');
     newDivTwo.addClass('trainingProgram');
-    if(j < 5){
     newDivOne.html('<h3>Week ' + (j + 1));
+    if(j < 5){
+   
     newDivTwo.html(
       'Deadlift('+deadliftPercent+'%): at ' + rnWeekDl +   dlReps +
       '<br/>Deficit Deadlift('+defictDeadPercent+'%): at ' + rnDefWeek + dlDefReps +
@@ -273,7 +274,6 @@ function createWorkout() {
     );
   }
   else if(j < 9){
-    newDivOne.html('<h3>Week ' + (j + 1));
     newDivTwo.html(
       'Deadlift('+deadliftPercent+'%): at ' + rnWeekDl +   dlReps +
       '<br/>Block Pull('+blockPullPercent+'%): at ' + rnBlockPullsWeek + bpRep +
@@ -282,7 +282,6 @@ function createWorkout() {
     );
   }
   else if(j < 10){
-    newDivOne.html('<h3>Week ' + (j + 1));
     newDivTwo.html(
       'Deadlift('+deadliftPercent+'%): at ' + rnWeekDl +   dlReps +
       '<br/>Front Squat('+frontSquatPercent+'%): at ' + rnWeekSq + fnsqReps +
@@ -291,7 +290,6 @@ function createWorkout() {
   
   }
   else{
-    newDivOne.html('<h3>Week ' + (j + 1));
     newDivTwo.html(
       'Deadlift('+deadliftPercent+'%): at ' + rnWeekDl +   dlReps +
       auxData

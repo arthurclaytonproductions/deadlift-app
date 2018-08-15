@@ -86,11 +86,11 @@ label{
 }
 
 
-@media screen and (max-width: 1280px){
+@media screen and (max-width: 1200px){
     #dlcurrentmax-input, #ftsqcurrentmax-input, #addmaxes,.labels{
       
-		Width: 100%;
-		float: left;
+    float: left;
+    width: 100%;
     }
 }
 

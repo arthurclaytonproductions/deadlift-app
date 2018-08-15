@@ -85,3 +85,20 @@ label{
     background: linear-gradient(to right, #1BADD8, #00003E);
 }
 
+
+@media screen and (max-width: 1280px){
+    #dlcurrentmax-input, #ftsqcurrentmax-input, #addmaxes,.labels{
+      
+		Width: 100%;
+		float: left;
+    }
+}
+
+@media screen and (max-width: 768px){
+    #dlcurrentmax-input, #ftsqcurrentmax-input, #addmaxes,.labels{
+        
+		Width: 100%;
+		float: left;
+    }
+}
+
